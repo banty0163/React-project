@@ -5,7 +5,7 @@ import Cards from './Components/Cards'
 function App() {
   return (
     <>
-      <div className='flex justify-evenly  flex-wrap bg-gray-400  '>
+      <div className='flex justify-evenly  flex-wrap bg-gray-400'>
         <Cards friendName="Saif" />
         <Cards name="banty" />
         <Cards name="bablu" />
