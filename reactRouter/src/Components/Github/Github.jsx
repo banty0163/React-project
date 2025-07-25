@@ -11,6 +11,7 @@ function Github() {
          fetch(`https://api.github.com/users/${username}`)
 .then((resp)=>resp.json())
 .then((resp)=>setData(resp))
+console.log(data);
    
   }
     
