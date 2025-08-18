@@ -1,23 +1,29 @@
 
 import {useSelector,useDispatch} from 'react-redux'
 import {removeTodo} from '../features/todo/todoSlice'
+import { useState } from 'react';
 function TaskTodo() {
     const todos =  useSelector(state => state.todos)
+    const [update,setUpdate] = useState('')
      const dispatch = useDispatch();
      
+     const editTask = ()=>{
+          
+     }
   return (
-    <div className='bg-gray-300 w-4xl text-left p-7 text-[20px] text-black mb-7'>
+    <div className='bg-gray-300 w-4xl text-left p-7 text-[20px] text-black h-auto  mb-9  rounded-md '>
         <div>
          <h1 className='text-center text-3xl  font-bold mb-2'>Tasks</h1>
          <h1 className='underline border mb-9'></h1>
        <div>
             {
              todos.map((todo)=>(
-               <li key={todo.id} 
-                className='bg-green-100 p-4 flex justify-between rounded-md mb-3 hover:bg-gray-400 hover:text-white m-3                
-'
+               <li  key={todo.id} 
+                 type="text"
+                className='bg-green-100 p-4 flex justify-between rounded-md mb-3 hover:bg-gray-400 hover:text-white m-3'
                    >
-                       {todo.text}
+                       <input type="text" value={todo.text}
+                       />
          <button onClick={()=>dispatch(removeTodo(todo.id))}
           className="transition-transform duration-10 hover:scale-110 "
           > 
@@ -27,11 +33,12 @@ function TaskTodo() {
 /> 
                
                </button>
+                <button onClick={editTask}>Edit</button>
                    </li>
              ))
           }
        </div>
-
+    
      </div>
     </div>
   )
